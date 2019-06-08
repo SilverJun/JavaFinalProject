@@ -3,15 +3,11 @@ package edu.handong.java.model;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.DateUtil;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -47,11 +43,11 @@ public class ExcelFile {
 	        	
 	        	for(int cn=0; cn<row.getLastCellNum(); cn++) {
 	        		Cell cell = row.getCell(cn);
+	        		
 	        		String value = "";
 	        		DataFormatter formatter = new DataFormatter();
 	        		
                     value += formatter.formatCellValue(cell);
-                    System.out.println(value);
                     value = value.replaceAll("\n", "");
                     value = value.replaceAll("\"", "\"\"");
                     value = value.replaceAll("\'", "\'\'");
